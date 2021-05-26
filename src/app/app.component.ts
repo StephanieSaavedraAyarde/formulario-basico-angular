@@ -185,5 +185,6 @@ export class AppComponent implements OnInit {
     alert('Felicidades, El registro se guardo correctamente');
     this.isFormSubmitted = true;
     this.stepCount = 1;
+    window.location.reload();
   }
 }
