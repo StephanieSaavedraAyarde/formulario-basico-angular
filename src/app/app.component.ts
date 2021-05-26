@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   formGroup3: any;
   formsValidationObj: any;
   salario;
+  resultado;
 
   public form: FormGroup;
   public contactList: FormArray;
@@ -166,5 +167,12 @@ export class AppComponent implements OnInit {
   // method triggered when form is submitted
   submit() {
     console.log(this.form.value);
+  }
+
+  calcular() {
+    this.resultado = parseInt(this.salario) * 8 * 236;
+    window.alert(
+      'El salario calculado de 365 dias/ 1 año es: ' + this.resultado
+    );
   }
 }
