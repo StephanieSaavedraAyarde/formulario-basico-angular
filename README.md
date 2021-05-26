@@ -1,3 +1,1 @@
-# my-form-angular
-
-[Edit on StackBlitz ⚡️](https://stackblitz.com/edit/my-form-angular)
+Formulario para el registro de jornales de una empresa. Proyecto realizado en en framework Angular.
