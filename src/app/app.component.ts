@@ -30,11 +30,6 @@ export class AppComponent implements OnInit {
     this.stepCount = 1;
     this.isFormSubmitted = false;
     this.formGroup1 = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required]
-    });
-
-    this.formGroup2 = this.fb.group({
       nombre: ['', Validators.required],
       paterno: ['', Validators.required],
       materno: ['', Validators.required],
@@ -46,6 +41,16 @@ export class AppComponent implements OnInit {
       antiguedad: ['', Validators.required],
       salario: ['', Validators.required],
       mes: ['', Validators.required]
+    });
+
+    this.formGroup2 = this.fb.group({
+      matricula: ['', Validators.required],
+      hospital: ['', Validators.required],
+      fecha: ['', Validators.required],
+      ciudad: ['', Validators.required],
+      sangre: ['', Validators.required],
+      peso: ['', Validators.required],
+      estatura: ['', Validators.required]
     });
 
     this.form = this.fb.group({
