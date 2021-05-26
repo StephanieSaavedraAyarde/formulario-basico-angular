@@ -1,3 +1,5 @@
+<a class="navbar-brand nav-link" routerLink="/">Men at Work</a>
+<h1>Formulario de registro el Jornal de los trabajadores de la empresa Men At Work</h1>
 <section *ngIf="stepCount <=3">
   <div class="container mt-2">
     <!--Barra de progreso superior-->
@@ -506,34 +508,7 @@
                           class="text-danger"
                           *ngIf="getContactsFormGroup(i).controls['name'].touched && getContactsFormGroup(i).controls['name'].hasError('required')"
                         >
-                          Numero de Referencia
-                        </span>
-                      </div>
-
-                      <div class="form-group col-12">
-                        <label>Correo Electronico</label>
-                        <input
-                          class="form-control"
-                          formControlName="value"
-                          type="text"
-                        />
-                        <span
-                          class="text-danger"
-                          *ngIf="getContactsFormGroup(i).controls['value'].touched && getContactsFormGroup(i).controls['value'].hasError('required')"
-                        >
-                          Este campo es requerido
-                        </span>
-                        <span
-                          class="text-danger"
-                          *ngIf="getContactsFormGroup(i).controls['value'].touched && getContactsFormGroup(i).controls['value'].hasError('email')"
-                        >
-                          El registro no es valido
-                        </span>
-                        <span
-                          class="text-danger"
-                          *ngIf="getContactsFormGroup(i).controls['value'].touched && getContactsFormGroup(i).controls['value'].hasError('pattern')"
-                        >
-                          El registro no es valido
+                          Referencia
                         </span>
                       </div>
                       <div class="form-group col-12 text-right">
@@ -560,19 +535,21 @@
                   </button>
                 </div>
               </div>
+              <div class="row">
+                <div class="col text-right">
+                  <button
+                  type="button"
+                  class="btn btn-secondary mr-2"
+                  (click)="onPrevClick()"
+                >
+                  Previous
+                </button>
+                  <button type="submit" (click)="onClick()" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
             </div>
           </form>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section *ngIf="stepCount > 3">
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
-        <h1 class="text-success">Form Submitted Successfully !!!</h1>
       </div>
     </div>
   </div>

@@ -180,4 +180,10 @@ export class AppComponent implements OnInit {
       'El salario calculado de 365 dias/ 1 año es: ' + this.resultado
     );
   }
+
+  onClick() {
+    swal('Felicidades', 'El registro se guardo correctamente');
+    this.isFormSubmitted = true;
+    this.stepCount = 1;
+  }
 }
