@@ -1,22 +1,19 @@
 <section *ngIf="stepCount <=3">
   <div class="container mt-2">
+    <!--Barra de progreso superior-->
     <div class="row">
       <div class="col">
         <div class="progressbar">
           <ul>
             <li
-              [ngClass]="{'active': (stepCount === 1), 'success': ((stepCount > 1)&&(formsValidationObj.form1Valid))}"
-            >
-              Informacion Basica
+              [ngClass]="{'active': (stepCount === 1), 'success': ((stepCount > 1)&&(formsValidationObj.form1Valid))}">
+              Informacion Personal
             </li>
             <li
-              [ngClass]="{'active': (stepCount === 2), 'success': ((stepCount > 2)&&(formsValidationObj.form2Valid))}"
-            >
-              Informacion Laboral
+              [ngClass]="{'active': (stepCount === 2), 'success': ((stepCount > 2)&&(formsValidationObj.form2Valid))}">
+              Seguro Médico
             </li>
-            <li
-              [ngClass]="{'active': (stepCount === 3), 'success': (formsValidationObj.form3Valid)}"
-            >
+            <li [ngClass]="{'active': (stepCount === 3), 'success': (formsValidationObj.form3Valid)}">
               Informacion de Contacto
             </li>
           </ul>
@@ -27,48 +24,252 @@
     <div class="container border border-secondary mt-3">
       <div class="row">
         <div class="col m-3">
-          <!-- Step1 Form -->
-          <form
-            [formGroup]="formGroup1"
-            (ngSubmit)="onNextClick()"
-            *ngIf="stepCount === 1"
-          >
+          <!--Primera Seccion-->
+          <form [formGroup]="formGroup1" (ngSubmit)="onNextClick()" *ngIf="stepCount === 1">
             <div class="row">
-              <div class="col-md-6 form-group">
-                <label for="firstName"> FirstName: </label>
-                <input
-                  name="firstName"
-                  formControlName="firstName"
-                  class="form-control"
-                  [ngClass]="{'is-invalid': isFormSubmitted && form1.firstName.errors}"
-                />
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isFormSubmitted && form1.firstName.errors"
-                >
-                  <span *ngIf="form1.firstName.errors.required"
-                    >FirstName is Required</span
-                  >
+              <div class="col-md-12 form-group">
+                <!--Primera Parte-->
+                <div class="card-header">Informacion Personal</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Nombre</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="nombre"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.nombre.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.nombre.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.nombre.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Apellido Paterno</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="paterno"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.paterno.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.paterno.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.paterno.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Apellido Materno</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="materno"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.materno.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.materno.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.materno.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Cedula de identidad</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="ci"
+                        type="number"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.ci.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.ci.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.ci.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Fecha de nacimiento</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="fecha"
+                        type="date"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.fecha.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.fecha.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.fecha.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6 form-group">
-                <label for="lastName"> LastName: </label>
-                <input
-                  name="lastName"
-                  formControlName="lastName"
-                  class="form-control"
-                  [ngClass]="{'is-invalid': isFormSubmitted && form1.lastName.errors}"
-                />
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isFormSubmitted && form1.lastName.errors"
-                >
-                  <span *ngIf="form1.lastName.errors.required"
-                    >LastName is Required</span
-                  >
+              <div class="col-md-12 form-group">
+                <!--Segunda Parte-->
+                <div class="card-header">Informacion Laboral</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Numero de empleado</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="empleado"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.empleado.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.empleado.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.empleado.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Departamento de trabajo</label>
+                      <select
+                        class="form-control"
+                        formControlName="area"
+                        type="text"
+                      >
+                        <option value="Departamento Administrativa"
+                          >Departamento Administrativa</option
+                        >
+                        <option value="Departamento de Sistemas"
+                          >Departamento de Sistemas</option
+                        >
+                        <option value="Departamento de Relaciones Publicas"
+                          >Departamento de Relaciones Publicas</option
+                        >
+                        <option value="Departamento de Produccion"
+                          >Departamento de Produccion</option
+                        >
+                        <option value="Departamento de Recursos Humanos"
+                          >Departamento de Recursos Humanos</option
+                        >
+                        <option value="Departamento de Finanzas"
+                          >Departamento de Finanzas</option
+                        >
+                        <option value="Departamento de Logistica"
+                          >Departamento de Logistica</option
+                        >
+                        <option value="Departamento de Gestión de Proyectos"
+                          >Departamento de Gestión de Proyectos</option
+                        >
+                      </select>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Profesion</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="profesion"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.profesion.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.profesion.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.profesion.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Años de antiguedad</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="antiguedad"
+                        type="number"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.antiguedad.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.antiguedad.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.antiguedad.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Salario por hora</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="salario"
+                        type="number"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.salario.errors}"
+                        [(ngModel)]="salario"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.salario.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.salario.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Salario por mes</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="mes"
+                        type="number"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.mes.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.mes.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.mes.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+            <button class="btn btn-primary" (click)="calcular()">
+              Calcular Salario
+            </button>
             <div class="row">
               <div class="col text-right">
                 <button
@@ -76,52 +277,165 @@
                   class="btn btn-secondary mr-2"
                   [disabled]="true"
                 >
-                  Previous
+                  Anterior
                 </button>
-                <button type="submit" class="btn btn-primary">Next</button>
+                <button type="submit" class="btn btn-primary">Siguiente</button>
               </div>
             </div>
           </form>
 
-          <!-- Step2 Form -->
-          <form
-            [formGroup]="formGroup2"
-            (ngSubmit)="onNextClick()"
-            *ngIf="stepCount === 2"
-          >
+          <!-- Segunda Seccion -->
+          <form [formGroup]="formGroup2" (ngSubmit)="onNextClick()" *ngIf="stepCount === 2">
             <div class="row">
-              <div class="col-md-6 form-group">
-                <label for="firstName"> FirstName: </label>
-                <input
-                  name="firstName"
-                  formControlName="firstName"
-                  class="form-control"
-                  [ngClass]="{'is-invalid': isFormSubmitted && form2.firstName.errors}"
-                />
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isFormSubmitted && form2.firstName.errors"
-                >
-                  <span *ngIf="form2.firstName.errors.required"
-                    >FirstName is Required</span
-                  >
+              <div class="col-md-12 form-group">
+                <!--Primera Parte-->
+                <div class="card-header">Informacion seguro Médico</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Numero de Matricula</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="matricula"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form2.matricula.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form2.matricula.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form2.matricula.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Nombre del centro de Salud</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="hospital"
+                        type="text"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form2.hospital.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form2.hospital.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form2.hospital.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre"
+                        >Fecha de reovacion de Afilicion</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="fecha"
+                        type="date"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form2.fecha.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form2.fecha.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form2.fecha.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Ciudad de Residencia</label>
+                      <select
+                        class="form-control"
+                        formControlName="ciudad"
+                        type="text"
+                      >
+                        <option value="La Paz">La Paz</option>
+                        <option value="Oruro">Oruro</option>
+                        <option value="Cochabamba">Cochabamba</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Potosi">Potosi</option>
+                        <option value="Tarija">Tarija</option>
+                        <option value="Chuquisaca">Chuquisaca</option>
+                        <option value="Pando">Pando</option>
+                        <option value="Beni">Beni</option>
+                      </select>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6 form-group">
-                <label for="lastName"> LastName: </label>
-                <input
-                  name="lastName"
-                  formControlName="lastName"
-                  class="form-control"
-                  [ngClass]="{'is-invalid': isFormSubmitted && form2.lastName.errors}"
-                />
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isFormSubmitted && form2.lastName.errors"
-                >
-                  <span *ngIf="form2.lastName.errors.required"
-                    >LastName is Required</span
-                  >
+              <div class="col-md-12 form-group">
+                <!--Segunda Parte-->
+                <div class="card-header">Informacion Salud Personal</div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="form-group col-6 form-group">
+                      <label for="nombre">Tipo de Sangre</label>
+                      <select
+                        class="form-control"
+                        formControlName="sangre"
+                        type="text"
+                      >
+                        <option value="A+">Tipo A+</option>
+                        <option value="A-">Tipo A-</option>
+                        <option value="B+">Tipo B+</option>
+                        <option value="B-">Tipo B-</option>
+                        <option value="AB+">Tipo AB+</option>
+                        <option value="AB-">Tipo B-</option>
+                        <option value="O+">Tipo O+</option>
+                        <option value="O+">Tipo O-</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Estatura</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="estatura"
+                        type="number"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.estatura.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.estatura.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.estatura.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="form-group col-6 form-group">
+                      <label>Peso</label>
+                      <input
+                        name=""
+                        class="form-control"
+                        formControlName="peso"
+                        type="number"
+                        [ngClass]="{'is-invalid': isFormSubmitted && form1.peso.errors}"
+                      />
+                      <div class="invalid-feedback" *ngIf="isFormSubmitted && form1.peso.errors">
+                        <span
+                          class="text-danger"
+                          *ngIf="form1.peso.errors.required"
+                        >
+                          Este campo es requerido
+                        </span>
+                      </div>
+                    </div>
+
+                    <mat-checkbox formControlName="enf1">
+                      Diabetes
+                    </mat-checkbox>
+                  </div>
                 </div>
               </div>
             </div>
@@ -132,65 +446,123 @@
                   class="btn btn-secondary mr-2"
                   (click)="onPrevClick()"
                 >
-                  Previous
+                  Anterior
                 </button>
-                <button type="submit" class="btn btn-primary">Next</button>
+                <button type="submit" class="btn btn-primary">Siguiente</button>
               </div>
             </div>
           </form>
 
-          <!-- Step3 Form -->
-          <form
-            [formGroup]="formGroup3"
-            (ngSubmit)="onNextClick()"
-            *ngIf="stepCount === 3"
-          >
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <label for="firstName"> FirstName: </label>
-                <input
-                  name="firstName"
-                  formControlName="firstName"
-                  class="form-control"
-                  [ngClass]="{'is-invalid': isFormSubmitted && form3.firstName.errors}"
-                />
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isFormSubmitted && form3.firstName.errors"
-                >
-                  <span *ngIf="form3.firstName.errors.required"
-                    >FirstName is Required</span
-                  >
+          <!-- Tercera Seccion -->
+          <form [formGroup]="form" (submit)="submit()" *ngIf="stepCount === 3">
+            <div class="card">
+              <div class="card-header">Informacion de Contacto</div>
+              <div class="card-body">
+                <div class="row">
+                  <div class="form-group col-6">
+                    <label>Nombre Completo</label>
+                    <input
+                      class="form-control"
+                      formControlName="name"
+                      type="text"
+                    />
+                    <span
+                      class="text-danger"
+                      *ngIf="form.controls['name'].touched && form.controls['name'].hasError('required')"
+                    >
+                      El campo es requerido
+                    </span>
+                  </div>
+                  <div class="form-group col-6">
+                    <label>Organizacion</label>
+                    <input
+                      class="form-control"
+                      formControlName="organization"
+                      type="text"
+                    />
+                  </div>
                 </div>
               </div>
-              <div class="col-md-6 form-group">
-                <label for="lastName"> LastNames: </label>
-                <input
-                  name="lastName"
-                  formControlName="lastName"
-                  class="form-control"
-                  [ngClass]="{'is-invalid': isFormSubmitted && form3.lastName.errors}"
-                />
-                <div
-                  class="invalid-feedback"
-                  *ngIf="isFormSubmitted && form3.lastName.errors"
-                >
-                  <span *ngIf="form3.lastName.errors.required"
-                    >LastName is Required</span
-                  >
+              <div class="card-body" formArrayName="contacts">
+                <div class="row">
+                  <div class="col-6" *ngFor="let contact of contactFormGroup.controls; let i = index;">
+                    <div [formGroupName]="i" class="row">
+                      <div class="form-group col-6">
+                        <label>Contacto</label>
+                        <select
+                          (change)="changedFieldType(i)"
+                          class="form-control"
+                          formControlName="type"
+                          type="text"
+                        >
+                          <option value="email">Email</option>
+                          <option value="phone">Telefono</option>
+                        </select>
+                      </div>
+                      <div class="form-group col-6">
+                        <label>Numero de Referencia</label>
+                        <input
+                          class="form-control"
+                          formControlName="name"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger"
+                          *ngIf="getContactsFormGroup(i).controls['name'].touched && getContactsFormGroup(i).controls['name'].hasError('required')"
+                        >
+                          Numero de Referencia
+                        </span>
+                      </div>
+
+                      <div class="form-group col-12">
+                        <label>Correo Electronico</label>
+                        <input
+                          class="form-control"
+                          formControlName="value"
+                          type="text"
+                        />
+                        <span
+                          class="text-danger"
+                          *ngIf="getContactsFormGroup(i).controls['value'].touched && getContactsFormGroup(i).controls['value'].hasError('required')"
+                        >
+                          Este campo es requerido
+                        </span>
+                        <span
+                          class="text-danger"
+                          *ngIf="getContactsFormGroup(i).controls['value'].touched && getContactsFormGroup(i).controls['value'].hasError('email')"
+                        >
+                          El registro no es valido
+                        </span>
+                        <span
+                          class="text-danger"
+                          *ngIf="getContactsFormGroup(i).controls['value'].touched && getContactsFormGroup(i).controls['value'].hasError('pattern')"
+                        >
+                          El registro no es valido
+                        </span>
+                      </div>
+                      <div class="form-group col-12 text-right">
+                        <button
+                          class="btn btn-danger"
+                          type="button"
+                          (click)="removeContact(i)"
+                        >
+                          Eliminar
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col text-right">
-                <button
-                  type="button"
-                  class="btn btn-secondary mr-2"
-                  (click)="onPrevClick()"
-                >
-                  Previous
-                </button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="card-body">
+                <div class="col-12">
+                  <button
+                    class="btn btn-primary m-1"
+                    type="button"
+                    (click)="addContact()"
+                  >
+                    Añadir Contacto
+                  </button>
+                </div>
               </div>
             </div>
           </form>
