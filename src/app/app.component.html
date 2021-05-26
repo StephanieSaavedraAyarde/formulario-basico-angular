@@ -1,11 +1,12 @@
-<a class="navbar-brand nav-link" routerLink="/">Men at Work</a>
-<h1>Formulario de registro el Jornal de los trabajadores de la empresa Men At Work</h1>
 <section *ngIf="stepCount <=3">
   <div class="container mt-2">
     <!--Barra de progreso superior-->
     <div class="row">
+      <img src="https://menatwork.net.au/wp-content/uploads/2017/06/MEN-AT-WORK-460px.png" width="200" height="200" style="padding:3px">
       <div class="col">
+
         <div class="progressbar">
+          <br><Br><br><br>
           <ul>
             <li
               [ngClass]="{'active': (stepCount === 1), 'success': ((stepCount > 1)&&(formsValidationObj.form1Valid))}">
@@ -285,6 +286,7 @@
               </div>
             </div>
           </form>
+          <br>
 
           <!-- Segunda Seccion -->
           <form [formGroup]="formGroup2" (ngSubmit)="onNextClick()" *ngIf="stepCount === 2">
@@ -450,6 +452,7 @@
               </div>
             </div>
           </form>
+          <br>
 
           <!-- Tercera Seccion -->
           <form [formGroup]="form" (submit)="submit()" *ngIf="stepCount === 3">
@@ -549,6 +552,7 @@
               </div>
             </div>
           </form>
+          <br>
         </div>
       </div>
     </div>

@@ -182,7 +182,7 @@ export class AppComponent implements OnInit {
   }
 
   onClick() {
-    swal('Felicidades', 'El registro se guardo correctamente');
+    alert('Felicidades, El registro se guardo correctamente');
     this.isFormSubmitted = true;
     this.stepCount = 1;
   }
